@@ -1,11 +1,106 @@
 .card {
   position: relative;
+  aspect-ratio: 1 / 1.5;
+
+  border: 2px solid #fff;
+  border-radius: 6px;
+
+  font-size: 0.9rem;
+
+  background-color: #fff;
+
+  /* preserve the 3d transformations of the childs */
+  transform-style: preserve-3d;
+}
+
+.card:hover {
+  transform: scale(1.02);
+  box-shadow: 0 0 10px #fff;
+  transition: all 0.5s ease;
+}
+
+.card-back,
+.card-front {
+  height: 100%;
+  width: 100%;
+
+  /* when the element is rotated around the y-axis, the backside is not visible*/
+  backface-visibility: hidden;
 }
 
 .card img {
-  width: 100%;
-  display: block;
-  border: 2px solid #fff;
-  border-radius: 6px;
+  min-height: 200px;
+  max-width: 200px;
 }
 
+/* card back */
+
+.card>.card-back {
+  position: absolute;
+}
+
+.card img.back {
+  height: 100%;
+  width: 100%;
+}
+
+/* card front*/
+
+.card .card-front {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+
+  background-color: #fff;
+
+  transform: rotateY(180deg);
+}
+
+.card-front>.character-info {
+  padding: 0;
+  background-color: black;
+  flex-grow: 1;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.character-info>p {
+  margin: 0;
+}
+
+/* animation styling */
+
+/* new cards rendering */
+.card.flip-appear {
+  transform: rotateY(0deg);
+}
+
+.card.flip-appear-active {
+  transform: rotateY(180deg);
+  transition: transform 800ms;
+}
+
+.card.flip-appear-done {
+  transform: rotateY(180deg);
+}
+
+/* effect after selection */
+.card.flip-enter,
+.card.flip-exit {
+  transform: rotateY(180deg);
+}
+
+.card.flip-enter-active,
+.card.flip-exit-active {
+  transform: rotateY(0deg);
+  transition: transform 400ms;
+}
+
+.card.flip-enter-done,
+.card.flip-exit-done {
+  transform: rotateY(180deg);
+  transition: transform 400ms;
+}
