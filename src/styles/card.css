@@ -76,31 +76,37 @@
 /* new cards rendering */
 .card.flip-appear {
   transform: rotateY(0deg);
+  pointer-events: none;
 }
 
 .card.flip-appear-active {
+  pointer-events: none;
   transform: rotateY(180deg);
   transition: transform 800ms;
 }
 
 .card.flip-appear-done {
+  pointer-events: all;
   transform: rotateY(180deg);
 }
 
 /* effect after selection */
 .card.flip-enter,
 .card.flip-exit {
+  pointer-events: none;
   transform: rotateY(180deg);
 }
 
 .card.flip-enter-active,
 .card.flip-exit-active {
+  pointer-events: none;
   transform: rotateY(0deg);
   transition: transform 400ms;
 }
 
 .card.flip-enter-done,
 .card.flip-exit-done {
+  pointer-events: all;
   transform: rotateY(180deg);
   transition: transform 400ms;
 }

@@ -25,7 +25,7 @@ export default function CardsBoard({ cards, setGuess }) {
   function onClickHandle(id) {
     setGuess(id);
     setFlip(!flip);
-    // setTimeout(shuffle, 300);
+    setTimeout(shuffle, 300);
   }
 
   return (

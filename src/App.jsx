@@ -33,7 +33,8 @@ export default function App() {
     console.log(json);
     console.log("url: " + url);
 
-    setNextPage(json.info.next_page);
+    if (json.info.next_page.includes("page=11")) setNextPage(baseUrl);
+    else setNextPage(json.info.next_page);
 
     if (!allCharacters) setAllCharacters(json.results);
     selectCharacters(json.results);
@@ -69,8 +70,13 @@ export default function App() {
       if (newGuesses.length % 8 === 0) {
         console.log("should re-fetch");
 
-        if (nextPage) fetchCharacters(nextPage);
-        else fetchCharacters(baseUrl);
+        if (nextPage) {
+          console.log("next page");
+          fetchCharacters(nextPage);
+        } else {
+          console.log("base url");
+          //fetchCharacters(baseUrl);
+        }
       }
       setGuesses(newGuesses);
     } else {
