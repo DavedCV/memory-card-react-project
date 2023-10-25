@@ -88,8 +88,10 @@ export default function App() {
 
   return (
     <div className="app">
-      <h1>Shingeki Memo</h1>
-      <ScoreBoard currentScore={guesses.length} bestScore={bestScore} />
+      <header>
+        <h1>Shingeki Memo</h1>
+        <ScoreBoard currentScore={guesses.length} bestScore={bestScore} />
+      </header>
       <CardsBoard cards={currentCharacters} setGuess={handleGuesses} />
     </div>
   );

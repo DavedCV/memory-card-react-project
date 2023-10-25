@@ -1,4 +1,7 @@
 .card {
+
+  max-width: 250px;
+
   position: relative;
   aspect-ratio: 1 / 1.5;
 
@@ -14,9 +17,7 @@
 }
 
 .card:hover {
-  transform: scale(1.02);
   box-shadow: 0 0 10px #fff;
-  transition: all 0.5s ease;
 }
 
 .card-back,
@@ -29,8 +30,11 @@
 }
 
 .card img {
+  /*
   min-height: 200px;
   max-width: 200px;
+  */
+  width: 100%;
 }
 
 /* card back */
@@ -74,38 +78,38 @@
 /* animation styling */
 
 /* new cards rendering */
-.card.flip-appear {
+.flip-appear {
   transform: rotateY(0deg);
   pointer-events: none;
 }
 
-.card.flip-appear-active {
+.flip-appear-active {
   pointer-events: none;
   transform: rotateY(180deg);
   transition: transform 800ms;
 }
 
-.card.flip-appear-done {
+.flip-appear-done {
   pointer-events: all;
   transform: rotateY(180deg);
 }
 
 /* effect after selection */
-.card.flip-enter,
-.card.flip-exit {
+.flip-enter,
+.flip-exit {
   pointer-events: none;
   transform: rotateY(180deg);
 }
 
-.card.flip-enter-active,
-.card.flip-exit-active {
+.flip-enter-active,
+.flip-exit-active {
   pointer-events: none;
   transform: rotateY(0deg);
   transition: transform 400ms;
 }
 
-.card.flip-enter-done,
-.card.flip-exit-done {
+.flip-enter-done,
+.flip-exit-done {
   pointer-events: all;
   transform: rotateY(180deg);
   transition: transform 400ms;
